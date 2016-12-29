@@ -1,17 +1,22 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <meta charset="UTF-8">
         <title></title>
     </head>
     <body>
-        <?php
-        // put your code here
-        ?>
+        <?php if(empty($_SESSION['login'])):?>
+        <form method="post">
+            <label>Login:
+                <input type="text" name="login"/>
+            </label>
+            <input type='submit' value='Log in,boy'>
+        </form>
+       <?php else:?>
+        <?php endif;?>
+       
     </body>
 </html>
