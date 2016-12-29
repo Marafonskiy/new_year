@@ -6,6 +6,10 @@ if(!empty($login)){
     $_SESSION['login']=$login;
 }
 //=====================================
+if(isset($_GET['action'])){
+    session_destroy();
+    header('Location'.$_SERVER['PHP_SELF']);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,6 +27,7 @@ if(!empty($login)){
         </form>
        <?php else:?>
         <?= $_SESSION['login']?>
+        <a href="?action=exit">Log out</a>
         <?php endif;?>
        
     </body>
